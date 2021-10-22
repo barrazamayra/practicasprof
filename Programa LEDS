@@ -1,0 +1,81 @@
+import RPi.GPIO as io           #se importan las librerias   
+import time
+
+button = 10                     #se enlaza el boton al GPIO10
+LED1 = 5                        #se enlazan los LEDS 1,2,3 y 4 al GPIO 5,7,11 y 13 respectivamente
+LED2 = 7
+LED3 = 11
+LED4 = 13
+
+io.setmode (io.BCM)
+
+io.setwarnings (False)         #se evitan advertencias
+
+io.setup (LED1,io.OUT)         #se definen los LEDS como salidas
+io.setup (LED2,io.OUT)        
+io.setup (LED3,io.OUT)
+io.setup (LED4,io.OUT)
+io.setup (button,io.IN)        #se define el boton como entrada
+
+while io.input(button):        #comienza el ciclo while
+    io.output(LED1,0)          #numero cero en binario (0000)
+    io.output(LED2,0)
+    io.output(LED3,0)
+    io.output(LED4,0)
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero uno en binario (0001) 
+    io.output(LED2,0) 
+    io.output(LED3,0)
+    io.output(LED4,1)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero dos en binario (0010) 
+    io.output(LED2,0) 
+    io.output(LED3,1)
+    io.output(LED4,0)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero tres en binario (0011)
+    io.output(LED2,0) 
+    io.output(LED3,1)
+    io.output(LED4,1)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero cuatro en binario (0100)
+    io.output(LED2,1) 
+    io.output(LED3,0)
+    io.output(LED4,0)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero cinco en binario (0101)
+    io.output(LED2,1) 
+    io.output(LED3,0)
+    io.output(LED4,1)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero seis en binario (0110)
+    io.output(LED2,1) 
+    io.output(LED3,1)
+    io.output(LED4,0)    
+    time.sleep(1)
+    
+    io.output(LED1,0)          #numero siete en binario (0111)
+    io.output(LED2,1) 
+    io.output(LED3,1)
+    io.output(LED4,1)    
+    time.sleep(1)
+    
+    io.output(LED1,1)          #numero ocho en binario (1000)
+    io.output(LED2,0) 
+    io.output(LED3,0)
+    io.output(LED4,0)    
+    time.sleep(1)
+    
+    io.output(LED1,1)          #numero nueve en binario (1001)
+    io.output(LED2,0) 
+    io.output(LED3,0)
+    io.output(LED4,1)    
+    time.sleep(1)
+    
+io.cleanup()
