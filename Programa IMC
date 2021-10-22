@@ -1,0 +1,42 @@
+print("Bienvenido al programa, a continuacion ingrese sus datos por favor")       # se le pide al usuario que ingrese sus datos
+
+nombre = str (input ("Ingrese su nombre:") )                                       # el usuario ingresa sus datos
+apellido = str (input ("Ingrese su apellido:") )
+edad = int (input ("Ingrese su edad:") )
+peso = float (input ("Ingrese su peso:") )
+altura = float (input ("Ingrese su altura:") )
+direccion = str (input ("Ingrese su direccion:") )
+telefono = int (input ("Ingrese su numero telefonico sin espacios:") )             # al finalizar, se guardan los datos
+
+persona = {"Nombre": nombre, "Apellido": apellido, "Edad": edad, "Peso": peso, "Altura": altura, "Dirección": direccion, "Telefono": telefono}
+
+imc = round (float (persona ["Peso"]) / (float (persona ["Altura"]) ** 2), 2)     #se calcula el IMC
+
+def cat_imc ():                                                            # se definen los parametros para mostrar un diagnóstico 
+    if imc < 18.5:
+        print ("Peso bajo")
+        
+    elif 18.5 < imc < 24.9:
+        print ("Peso normal")
+        
+    elif 25.0 < imc < 29.9:
+        print ("Peso elevado")
+        
+    elif 30.0 < imc < 34.9:
+        print ("Obesidad tipo: I")
+        
+    elif 35.0 < imc < 39.9:
+        print ("Obesidad tipo: II")
+        
+    elif imc > 40:
+        print ("Obesidad tipo: III")
+        
+print ("IMC:", imc)
+
+def imprimir():
+    print (persona)                                                       # visualizacion final de todos los datos
+    
+    
+    
+cat_imc()
+imprimir()
